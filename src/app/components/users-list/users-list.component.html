@@ -1,0 +1,40 @@
+<div class="user-list">
+
+    <table mat-table [dataSource]="userList">
+
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef> Indice </th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          {{ getPokemonNumber(i)  }}  
+        </td>
+      </ng-container>
+
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element" class="users-list-item" > {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef> Detalhes </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button [routerLink]="['/pokemon', getIdFromUrl(element.url)]">
+              Ver detalhes
+            </button>
+          </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator
+      [length]="totalCount"
+      [pageSize]="limit"
+      [pageSizeOptions]="[20, 50, 100]"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+      
+</div>

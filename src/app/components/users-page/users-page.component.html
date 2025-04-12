@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="left-container">
+      <div class="top-div">
+        <app-filter (onFilterEmitt)="onFilter($event)"></app-filter>
+      </div>
+      <div class="main-left-div">
+        <app-users-list
+          [userList]="PokemonFilter"
+          [limit]="limit"
+          [totalCount]="totalCount"
+          (pageChanged)="onPageChange($event)">
+        </app-users-list>
+      </div>
+    </div>
+</div>
