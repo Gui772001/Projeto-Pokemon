@@ -12,7 +12,7 @@ export class UserDetailsComponent implements OnInit {
   user: PokemonDetails | null = null;
   totalStats: number = 0
   displayedColumns: string[] = [
-    'name', 'id', 'totalStats', 'height', 'weight', 'types', 'abilities', 
+    'id', 'totalStats', 'height', 'weight', 'abilities', 
     'base_experience', 'forms', 'moves',
   ];
 

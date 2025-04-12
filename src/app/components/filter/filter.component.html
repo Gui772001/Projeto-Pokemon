@@ -2,15 +2,13 @@
 
     <div class="form">
         <div class="form__name">
-        <mat-form-field class="example-full-width">
-          <mat-label>Nome</mat-label>
-          <input name="name" matInput placeholder="" [(ngModel)]="filteroptions.name" />
-        </mat-form-field>
+          <input name="name" matInput placeholder="Nome..." [(ngModel)]="filteroptions.name" />
+        </div>
+        <div class="form_button">
+          <button  color="primary" (click)="onFilter()">Filtrar</button>
+        </div>
     </div>
     
    
-    <div class="form_button">
-    <button mat-raised-button color="primary" (click)="onFilter()">Filtrar</button>
-    </div>
-    </div>
+    
 </div>

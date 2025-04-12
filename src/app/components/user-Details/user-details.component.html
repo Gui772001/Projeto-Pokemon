@@ -1,90 +1,249 @@
-<mat-list>
-    <mat-list-item >
-      <span class="mat-h2">Detalhes do Pokémon</span>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-  
-    <!-- Tabela de Detalhes do Pokémon -->
+<div class="user-details">
+  <app-header></app-header>
+<div class="container-default">
+  <div class="container_details">
+    <div class="card" style="width: 18rem;">
+      <div *ngIf="user" style="margin-top: 20px; text-align: center;">
+        <div id="carouselExample" class="carousel slide">
+          <div *ngIf="user" style="margin-top: 20px; text-align: center;">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img [src]="user.sprites.other['official-artwork'].front_default"  class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img [src]="user.sprites.front_shiny" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img  [src]="user.sprites.front_default" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-body"> 
+        <h5 class="card-title" > 
+          {{user?.name}}
+        </h5>
+        <p class="card-text"><b>Tipo: </b> <span *ngFor="let type of user?.types">{{ type.type.name }} </span></p>
+      </div>
+    </div>
+  <div class="container_tabelas">
+      <mat-list>
+        <mat-list-item >
+          <span class="mat-h2">Detalhes do Pokémon</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      
+        <!-- Tabela de Detalhes do Pokémon -->
+        <table mat-table [dataSource]="[user]" class="mat-elevation-z8">
+      
+        
+      
+          <!-- Coluna: ID -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{ element?.id }} </td>
+          </ng-container>
+      
+          <!-- Coluna: Soma dos Status -->
+          <ng-container matColumnDef="totalStats">
+            <th mat-header-cell *matHeaderCellDef> Soma dos Status </th>
+            <td mat-cell *matCellDef="let element"> {{ totalStats }} </td>
+          </ng-container>
+      
+          <!-- Coluna: Altura -->
+          <ng-container matColumnDef="height">
+            <th mat-header-cell *matHeaderCellDef> Altura </th>
+            <td mat-cell *matCellDef="let element"> {{ element?.height }} </td>
+          </ng-container>
+      
+          <!-- Coluna: Peso -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Peso </th>
+            <td mat-cell *matCellDef="let element"> {{ element?.weight }} </td>
+          </ng-container>
+      
+        
+      
+          <!-- Coluna: Habilidades -->
+          <ng-container matColumnDef="abilities">
+            <th mat-header-cell *matHeaderCellDef> Habilidades </th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngFor="let ability of element?.abilities">{{ ability.ability.name }} </span>
+            </td>
+          </ng-container>
+      
+          <!-- Coluna: Experiência Base -->
+          <ng-container matColumnDef="base_experience">
+            <th mat-header-cell *matHeaderCellDef> Experiência Base </th>
+            <td mat-cell *matCellDef="let element"> {{ element?.base_experience }} </td>
+          </ng-container>
+      
+          <!-- Coluna: Forma -->
+          <ng-container matColumnDef="forms">
+            <th mat-header-cell *matHeaderCellDef> Forma </th>
+            <td mat-cell *matCellDef="let element"> {{ element?.forms[0]?.name }} </td>
+          </ng-container>
+      
+          <!-- Coluna: Movimentos -->
+          <ng-container matColumnDef="moves">
+            <th mat-header-cell *matHeaderCellDef> Movimentos </th>
+            <td mat-cell *matCellDef="let element">
+              <span *ngFor="let move of element?.moves.slice(0, 5) let loop = last">
+                {{ move.move.name }}{{ !loop ? ', ' : '' }}
+              </span>
+            </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-list>
     <table mat-table [dataSource]="[user]" class="mat-elevation-z8">
-  
-      <!-- Coluna: Nome -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let element"> {{ element?.name }} </td>
+
+      <ng-container matColumnDef="order">
+        <th mat-header-cell *matHeaderCellDef> Ordem </th>
+        <td mat-cell *matCellDef="let element"> {{ element?.order }} </td>
       </ng-container>
-  
-      <!-- Coluna: ID -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let element"> {{ element?.id }} </td>
-      </ng-container>
-  
-      <!-- Coluna: Soma dos Status -->
-      <ng-container matColumnDef="totalStats">
-        <th mat-header-cell *matHeaderCellDef> Soma dos Status </th>
-        <td mat-cell *matCellDef="let element"> {{ totalStats }} </td>
-      </ng-container>
-  
-      <!-- Coluna: Altura -->
-      <ng-container matColumnDef="height">
-        <th mat-header-cell *matHeaderCellDef> Altura </th>
-        <td mat-cell *matCellDef="let element"> {{ element?.height }} </td>
-      </ng-container>
-  
-      <!-- Coluna: Peso -->
+    
       <ng-container matColumnDef="weight">
         <th mat-header-cell *matHeaderCellDef> Peso </th>
-        <td mat-cell *matCellDef="let element"> {{ element?.weight }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element?.weight / 10 }} kg </td>
       </ng-container>
-  
-      <!-- Coluna: Tipos -->
-      <ng-container matColumnDef="types">
-        <th mat-header-cell *matHeaderCellDef> Tipos </th>
+    
+      <ng-container matColumnDef="location_area_encounters">
+        <th mat-header-cell *matHeaderCellDef> Locais Encontrados </th>
         <td mat-cell *matCellDef="let element">
-          <span *ngFor="let type of element?.types">{{ type.type.name }} </span>
+          <a [href]="element?.location_area_encounters" target="_blank">Ver Locais</a>
         </td>
       </ng-container>
-  
-      <!-- Coluna: Habilidades -->
-      <ng-container matColumnDef="abilities">
-        <th mat-header-cell *matHeaderCellDef> Habilidades </th>
+    
+      <ng-container matColumnDef="held_items">
+        <th mat-header-cell *matHeaderCellDef> Itens Segurados </th>
         <td mat-cell *matCellDef="let element">
-          <span *ngFor="let ability of element?.abilities">{{ ability.ability.name }} </span>
+          <div *ngIf="element?.held_items.length; else noItems">
+            <div *ngFor="let item of element.held_items">
+              {{ item.item.name }} - <a [href]="item.item.url" target="_blank">URL</a>
+            </div>
+          </div>
+          <ng-template #noItems> Nenhum </ng-template>
         </td>
       </ng-container>
-  
-      <!-- Coluna: Experiência Base -->
-      <ng-container matColumnDef="base_experience">
-        <th mat-header-cell *matHeaderCellDef> Experiência Base </th>
-        <td mat-cell *matCellDef="let element"> {{ element?.base_experience }} </td>
-      </ng-container>
-  
-      <!-- Coluna: Forma -->
-      <ng-container matColumnDef="forms">
-        <th mat-header-cell *matHeaderCellDef> Forma </th>
-        <td mat-cell *matCellDef="let element"> {{ element?.forms[0]?.name }} </td>
-      </ng-container>
-  
-      <!-- Coluna: Movimentos -->
+    
       <ng-container matColumnDef="moves">
         <th mat-header-cell *matHeaderCellDef> Movimentos </th>
         <td mat-cell *matCellDef="let element">
-          <span *ngFor="let move of element?.moves.slice(0, 5) let loop = last">
-            {{ move.move.name }}{{ !loop ? ', ' : '' }}
-          </span>
+          <div *ngFor="let move of element?.moves.slice(0, 3)">
+            {{ move.move.name }}
+          </div>
         </td>
       </ng-container>
-     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-   </table>
- 
-   <!-- Imagens do Pokémon -->
-   <div *ngIf="user" style="margin-top: 20px; text-align: center;">
-     <h2>{{ user.name | titlecase }}</h2>
-     <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-       <img [src]="user.sprites.front_default" alt="Front default" width="120" height="120">
-       <img [src]="user.sprites.front_shiny" alt="Front shiny" width="120" height="120">
-       <img [src]="user.sprites.other['official-artwork'].front_default" alt="Official artwork" width="120" height="120">
-     </div>
-   </div>
- </mat-list>
+    
+      <ng-container matColumnDef="species">
+        <th mat-header-cell *matHeaderCellDef> Espécie </th>
+        <td mat-cell *matCellDef="let element">
+          <a [href]="element?.species.url" target="_blank">{{ element?.species.name }}</a>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="sprites">
+        <th mat-header-cell *matHeaderCellDef> Sprite Frontal </th>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element?.sprites.front_default" alt="Sprite">
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="base_stats">
+        <th mat-header-cell *matHeaderCellDef> Status Base (1º) </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.stats[0]?.stat.name }}: {{ element?.stats[0]?.base_stat }}
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="['order','weight','location_area_encounters','held_items','moves','species','sprites','base_stats']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['order','weight','location_area_encounters','held_items','moves','species','sprites','base_stats']"></tr>
+    
+    </table>
+    <table mat-table [dataSource]="[user]" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="base_stats_2">
+        <th mat-header-cell *matHeaderCellDef> Status Base (2º) </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.stats[1]?.stat.name }}: {{ element?.stats[1]?.base_stat }}
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="base_stats_3">
+        <th mat-header-cell *matHeaderCellDef> Status Base (3º) </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.stats[2]?.stat.name }}: {{ element?.stats[2]?.base_stat }}
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="sprites_back">
+        <th mat-header-cell *matHeaderCellDef> Sprite Traseira </th>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element?.sprites.back_default" alt="Back Sprite">
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="sprites_shiny">
+        <th mat-header-cell *matHeaderCellDef> Sprite Brilhante </th>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element?.sprites.front_shiny" alt="Shiny Sprite">
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="past_types">
+        <th mat-header-cell *matHeaderCellDef> Tipos Passados </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element?.past_types?.length; else noPastTypes">
+            <div *ngFor="let pt of element.past_types">
+              {{ pt.generation.name }}
+            </div>
+          </div>
+          <ng-template #noPastTypes> Nenhum </ng-template>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="game_versions">
+        <th mat-header-cell *matHeaderCellDef> Primeira Versão </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.game_indices[0]?.version.name }}
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="experience_calc">
+        <th mat-header-cell *matHeaderCellDef> XP x Peso </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element?.base_experience * element?.weight }}
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="first_move_url">
+        <th mat-header-cell *matHeaderCellDef> Primeiro Move (URL) </th>
+        <td mat-cell *matCellDef="let element">
+          <a [href]="element?.moves[0]?.move.url" target="_blank">
+            {{ element?.moves[0]?.move.name }}
+          </a>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="['base_stats_2','base_stats_3','sprites_back','sprites_shiny','past_types','game_versions','experience_calc','first_move_url']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['base_stats_2','base_stats_3','sprites_back','sprites_shiny','past_types','game_versions','experience_calc','first_move_url']"></tr>
+    
+    </table>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>
+
+</div>

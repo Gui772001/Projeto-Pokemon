@@ -19,7 +19,7 @@
         <ng-container matColumnDef="details">
           <th mat-header-cell *matHeaderCellDef> Detalhes </th>
           <td mat-cell *matCellDef="let element">
-            <button mat-button [routerLink]="['/pokemon', getIdFromUrl(element.url)]">
+            <button class="btn_style" [routerLink]="['/pokemon', getIdFromUrl(element.url)]">
               Ver detalhes
             </button>
           </td>
