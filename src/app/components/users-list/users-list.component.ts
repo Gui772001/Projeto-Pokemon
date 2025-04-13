@@ -21,22 +21,16 @@ export class UsersListComponent {
   displayedColumns: string[] = ['number', 'name', 'details', 'select'];
   currentPage: number = 0;
   selectedPokemons: PokemonDetails[] = [];
-
-  // Verifica se o Pokémon está na lista de selecionados
   isPokemonSelected(pokemon: PokemonDetails): boolean {
     return this.selectedPokemons.some(p => p.name === pokemon.name);
   }
   
 
   PokemonSelection(pokemon: PokemonBasicInfo): void {
-
     const index = this.selectedPokemons.findIndex(p => p.name === pokemon.name);
-
-
     if (index !== -1) {
       this.selectedPokemons.splice(index, 1);
     } 
- 
     else if (this.selectedPokemons.length < 2) {
     
       this.fetchPokemonDetails(pokemon);
@@ -44,12 +38,10 @@ export class UsersListComponent {
   }
 
 
-  private async fetchPokemonDetails(pokemon: PokemonBasicInfo) {
+   async fetchPokemonDetails(pokemon: PokemonBasicInfo) {
     const id = this.getIdFromUrl(pokemon.url);
     try {
       const details = await firstValueFrom(this.http.get<PokemonDetails>(`https://pokeapi.co/api/v2/pokemon/${id}`));
-
-   
       if (details && details.stats) {
         this.selectedPokemons.push(details);
       } else {
@@ -62,10 +54,6 @@ export class UsersListComponent {
 
 
   getTotalStats(pokemon: PokemonDetails): number {
-    if (!pokemon || !pokemon.stats || !Array.isArray(pokemon.stats)) {
-      console.error('Pokémon sem dados de stats:', pokemon);
-      return 0;
-    }
     return pokemon.stats.reduce((acc: number, stat: any) => acc + stat.base_stat, 0);
   }
 
@@ -78,8 +66,8 @@ export class UsersListComponent {
     const total1 = this.getTotalStats(p1);
     const total2 = this.getTotalStats(p2);
 
-    if (total1 > total2) return `${p1.name} é mais forte (${total1} > ${total2})`;
-    if (total2 > total1) return `${p2.name} é mais forte (${total2} > ${total1})`;
+    if (total1 > total2) return `${p1.name}`;
+    if (total2 > total1) return `${p2.name}`;
     return `${p1.name} e ${p2.name} têm a mesma força (${total1})`;
   }
 

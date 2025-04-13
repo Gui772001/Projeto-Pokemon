@@ -13,7 +13,6 @@
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Nome </th>
           <td mat-cell *matCellDef="let element" class="users-list-item" > {{element.name}}
-            <span *ngIf="isPokemonSelected(element)" class="selected-marker">Selecionado!</span>
            </td>
         </ng-container>
       
