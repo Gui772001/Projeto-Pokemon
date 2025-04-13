@@ -11,7 +11,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class UsersListComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   
   @Input() userList: PokemonBasicInfo[] = [];
   @Output() pageChanged = new EventEmitter<PageEvent>();

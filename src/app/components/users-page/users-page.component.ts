@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonBasicInfo } from '../../interfaces/Pokemons/PokemonListResponse';
 import { PokemonService } from '../../service/pokemon.service';
 import { PageEvent } from '@angular/material/paginator';
-import { IfilterOption } from '../../interfaces/filter-optinons.interface';
+import { IfilterOption } from '../../interfaces/Pokemons/filter-optinons.interface';
 
 @Component({
   selector: 'app-users-page',

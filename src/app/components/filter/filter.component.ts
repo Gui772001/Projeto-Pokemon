@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { IfilterOption } from '../../interfaces/filter-optinons.interface';
+import { IfilterOption } from '../../interfaces/Pokemons/filter-optinons.interface';
 
 @Component({
   selector: 'app-filter',
