@@ -66,8 +66,8 @@ export class UsersListComponent {
     const total1 = this.getTotalStats(p1);
     const total2 = this.getTotalStats(p2);
 
-    if (total1 > total2) return `${p1.name}`;
-    if (total2 > total1) return `${p2.name}`;
+    if (total1 > total2) return `${p1.name} é mais forte que ${p2.name}`;
+    if (total2 > total1) return `${p2.name} é mais forte que ${p1.name}`;
     return `${p1.name} e ${p2.name} têm a mesma força (${total1})`;
   }
 
