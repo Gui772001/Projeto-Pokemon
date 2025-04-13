@@ -29,9 +29,12 @@
         <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef> Selecionar </th>
           <td mat-cell *matCellDef="let element">
-            <button class="btn_style" (click)="PokemonSelection(element)">
-              {{ isPokemonSelected(element) ? 'Selecionado' : 'Selecionar' }}
-            </button>
+            <button 
+            [ngStyle]="{ 'background-color': isPokemonSelected(element) ? '#85302f' : '#ef5350' }"
+            class="btn_style" 
+            (click)="PokemonSelection(element)">
+            {{ isPokemonSelected(element) ? 'Selecionado' : 'Selecionar' }}
+          </button>
           </td>
         </ng-container>
       
@@ -44,7 +47,7 @@
       [pageSizeOptions]="[20, 50, 100]"
       (page)="onPageChange($event)">
     </mat-paginator>
-    <div *ngIf="selectedPokemons.length === 2">
+    <div class="container_pokemom_selectd" *ngIf="selectedPokemons.length === 2">
       <div class="card">
         <div class="card-header">
           <h3>{{ getComparisonResult() }}</h3>
