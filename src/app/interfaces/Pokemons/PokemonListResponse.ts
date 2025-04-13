@@ -4,7 +4,13 @@ export interface PokemonListResponse {
     previous: string | null;
     results: PokemonBasicInfo[];
   }
-  
+  export interface PokemonComparador{
+    name: string;
+    url: string;
+    results: PokemonBasicInfo[];
+    stats: BaseStat[];
+  }
+
   export interface PokemonBasicInfo {
     name: string;
     url: string;

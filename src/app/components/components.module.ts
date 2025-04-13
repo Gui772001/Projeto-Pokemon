@@ -11,6 +11,9 @@ import { RouterModule } from '@angular/router';
 import { UsersPageComponent } from './users-page/users-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
     declarations:[
@@ -28,6 +31,7 @@ import { FooterComponent } from './footer/footer.component';
      RouterModule,
      CommonModule,
      MatPaginatorModule,
+     HttpClientModule
      
     ],
     exports:[

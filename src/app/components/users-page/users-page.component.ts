@@ -11,6 +11,7 @@ import { IfilterOption } from '../../interfaces/filter-optinons.interface';
 })
 export class UsersPageComponent implements OnInit{
 constructor(private pokemonService: PokemonService) {}
+
   userList: PokemonBasicInfo[] = [];
   PokemonFilter:PokemonBasicInfo[] = []
   limit: number = 20;

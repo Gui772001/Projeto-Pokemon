@@ -12,10 +12,12 @@
 
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Nome </th>
-          <td mat-cell *matCellDef="let element" class="users-list-item" > {{element.name}} </td>
+          <td mat-cell *matCellDef="let element" class="users-list-item" > {{element.name}}
+            <span *ngIf="isPokemonSelected(element)" class="selected-marker">Selecionado!</span>
+           </td>
         </ng-container>
       
-        <!-- Name Column -->
+  
         <ng-container matColumnDef="details">
           <th mat-header-cell *matHeaderCellDef> Detalhes </th>
           <td mat-cell *matCellDef="let element">
@@ -24,8 +26,17 @@
             </button>
           </td>
         </ng-container>
+
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef> Selecionar </th>
+          <td mat-cell *matCellDef="let element">
+            <button class="btn_style" (click)="onSelectPokemon(element)">
+              Selecionar
+            </button>
+          </td>
+        </ng-container>
       
-        <!-- Weight Column -->
+  
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -36,5 +47,32 @@
       [pageSizeOptions]="[20, 50, 100]"
       (page)="onPageChange($event)">
     </mat-paginator>
+    <div *ngIf="selectedPokemons.length === 2">
+      <div class="card">
+        <div class="card-header">
+          <h3>{{ getComparisonResult() }}</h3>
+        </div>
+        <div class="card-body">
+          <div class="carousel slide" id="carouselExample" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img [src]="selectedPokemons[0].sprites.other['official-artwork'].front_default" class="d-block w-100" alt="Imagem do Pokémon 1">
+              </div>
+              <div class="carousel-item">
+                <img [src]="selectedPokemons[1].sprites.other['official-artwork'].front_default" class="d-block w-100" alt="Imagem do Pokémon 2">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
       
 </div>
