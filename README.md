@@ -16,11 +16,14 @@ Funcionalidades
 ⚔️ Comparação entre dois Pokémons (Extra): O projeto permite selecionar dois Pokémons e comparar qual dos dois tem a maior soma de status.
 
 Tecnologias Utilizadas
-Frontend: Angular, TypeScript, HTML, CSS
+Frontend: 
+- •Angular
+- •TypeScript
+- •HTML
+- •CSS
+- •bootstrap
 
 API: PokeAPI (https://pokeapi.co/)
-
-Ferramentas: Angular CLI, npm
 
 Tela Principal
 <p align="center"> <img src="./img/pokemon-tela-inicial.png" alt="Tela de consulta de Pokémon" width="700"/> </p>
