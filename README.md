@@ -3,11 +3,15 @@ Este projeto foi desenvolvido como parte de um processo seletivo, onde a propost
 
 
 Funcionalidades
+
 🔍 Consulta de Pokémons: A página exibe uma lista de Pokémons utilizando a API PokeAPI e permite que o usuário pesquise por um Pokémon específico.
+
 
 📝 Detalhes de Pokémon: Ao selecionar um Pokémon da lista, o usuário pode ver informações detalhadas sobre ele, como tipo, habilidades e status.
 
+
 ➕ Soma dos Status: Ao visualizar os detalhes do Pokémon, a soma de todos os seus atributos base_stats é calculada e exibida.
+
 
 ⚔️ Comparação entre dois Pokémons (Extra): O projeto permite selecionar dois Pokémons e comparar qual dos dois tem a maior soma de status.
 
