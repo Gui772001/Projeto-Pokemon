@@ -23,7 +23,7 @@ Tela Principal
 Tela de Detalhes do Pokémon
 <p align="center"> <img src="./img/pokemon-detalhes-personagem.png" alt="Tela de detalhes do Pokémon" width="700"/> </p>
 Tela de Comparação entre Dois Pokémons
-<p align="center"> <img src="./img/pokemon-detalhes-personagem.png" alt="Tela de comparação de Pokémons" width="700"/> </p>
+<p align="center"> <img src="./img/pokemon-comparacao.png" alt="Tela de comparação de Pokémons" width="700"/> </p>
 Funcionalidade de Pesquisa
 O projeto permite que os usuários pesquisem por um Pokémon específico, digitando o nome ou parte do nome do Pokémon na barra de pesquisa.
 <p align="center"> <img src="./img/pokemon-tela-pesquisa.png" alt="Tela de pesquisa de Pokémon" width="700"/> </p>
