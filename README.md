@@ -1,27 +1,30 @@
-# ProjetoFiltroListaUsuarios
+Projeto Pokémon
+Este projeto foi desenvolvido como parte de um processo seletivo, onde a proposta era criar uma página web para consultar informações sobre Pokémons utilizando a API PokeAPI. O projeto permite visualizar uma lista de Pokémons, selecionar um para ver seus detalhes e realizar cálculos de soma de atributos dos Pokémons.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.14.
 
-## Development server
+Funcionalidades
+🔍 Consulta de Pokémons: A página exibe uma lista de Pokémons utilizando a API PokeAPI e permite que o usuário pesquise por um Pokémon específico.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+📝 Detalhes de Pokémon: Ao selecionar um Pokémon da lista, o usuário pode ver informações detalhadas sobre ele, como tipo, habilidades e status.
 
-## Code scaffolding
+➕ Soma dos Status: Ao visualizar os detalhes do Pokémon, a soma de todos os seus atributos base_stats é calculada e exibida.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+⚔️ Comparação entre dois Pokémons (Extra): O projeto permite selecionar dois Pokémons e comparar qual dos dois tem a maior soma de status.
 
-## Build
+Tecnologias Utilizadas
+Frontend: Angular, TypeScript, HTML, CSS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+API: PokeAPI (https://pokeapi.co/)
 
-## Running unit tests
+Ferramentas: Angular CLI, npm
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Tela Principal
+<p align="center"> <img src="./img/pokemon-tela-inicial.png" alt="Tela de consulta de Pokémon" width="700"/> </p>
+Tela de Detalhes do Pokémon
+<p align="center"> <img src="./img/pokemon-detalhes-personagem.png" alt="Tela de detalhes do Pokémon" width="700"/> </p>
+Tela de Comparação entre Dois Pokémons
+<p align="center"> <img src="./img/pokemon-detalhes-personagem.png" alt="Tela de comparação de Pokémons" width="700"/> </p>
+Funcionalidade de Pesquisa
+O projeto permite que os usuários pesquisem por um Pokémon específico, digitando o nome ou parte do nome do Pokémon na barra de pesquisa.
+<p align="center"> <img src="./img/pokemon-tela-pesquisa.png" alt="Tela de pesquisa de Pokémon" width="700"/> </p>
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
