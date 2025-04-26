@@ -1,4 +1,5 @@
 Projeto Pokémon
+
 Este projeto foi desenvolvido como parte de um processo seletivo, onde a proposta era criar uma página web para consultar informações sobre Pokémons utilizando a API PokeAPI. O projeto permite visualizar uma lista de Pokémons, selecionar um para ver seus detalhes e realizar cálculos de soma de atributos dos Pokémons.
 
 
